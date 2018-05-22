@@ -61,9 +61,7 @@
         "webpack": "^4.3.0",
         "zone.js": "0.8.18"
     },
-    "devDependencies": {
-
-    },
+    "devDependencies": {},
     "description": "An Ionic project",
     "cordova": {
         "plugins": {
