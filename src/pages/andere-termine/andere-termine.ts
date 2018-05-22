@@ -16,7 +16,7 @@ import { KalenderProvider } from '../../providers/kalender/kalender';
 })
 export class AndereTerminePage {
 
-	public calenderData:any;
+  public calenderData:any;
   public dataReady:boolean;
   
 
@@ -31,9 +31,11 @@ export class AndereTerminePage {
     .then(data => {
       this.calenderData = data;
       this.dataReady=true;
-      console.log("Test");
+      
     });
   }
+
+
 
   
 

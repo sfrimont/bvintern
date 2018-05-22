@@ -11,10 +11,35 @@ import { BildergaleriePage } from '../pages/bildergalerie/bildergalerie';
 import { AdresslistePage } from '../pages/adressliste/adressliste';
 import { KalenderPage } from '../pages/kalender/kalender';
 import { AndereTerminePage } from '../pages/andere-termine/andere-termine';
+import { HomePage } from '../pages/home/home';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { KalenderProvider } from '../providers/kalender/kalender';
+import { DropboxProvider } from '../providers/dropbox/dropbox';
+
+import { HttpModule } from '@angular/http';
+import { HTTP } from '@ionic-native/http';
+
+import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio';
+
+import { FileTransfer } from "@ionic-native/file-transfer";
+import { File } from "@ionic-native/file";
+import { Media  } from '@ionic-native/media';
+
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import {AudioplayerPage} from "../pages/audioplayer/audioplayer";
+import { AuthProvider } from '../providers/auth/auth';
+import {SigninPage} from "../pages/signin/signin";
+
+import { FileOpener } from '@ionic-native/file-opener';
+
+/**
+ * Sample custom factory function to use with ionic-audio
+ */
+export function myCustomAudioProviderFactory() {
+  return (window.hasOwnProperty('cordova')) ? new CordovaMediaProvider() : new WebAudioProvider();
+}
 
 @NgModule({
   declarations: [
@@ -24,13 +49,20 @@ import { KalenderProvider } from '../providers/kalender/kalender';
     AufgabenPage,
     BildergaleriePage,
     AdresslistePage,
-    AndereTerminePage
+    AndereTerminePage,
+    HomePage,
+      SigninPage,
+      AudioplayerPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    PipesModule
+    HttpModule,
+    PipesModule,
+    IonicAudioModule.forRoot(defaultAudioProviderFactory),
+      PdfViewerModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,13 +72,23 @@ import { KalenderProvider } from '../providers/kalender/kalender';
     AufgabenPage,
     BildergaleriePage,
     AdresslistePage,
-    AndereTerminePage
+    AndereTerminePage,
+    HomePage,
+      SigninPage,
+      AudioplayerPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    KalenderProvider
+    KalenderProvider,
+    DropboxProvider,
+      FileTransfer,
+      File,
+      HTTP,
+      Media,
+    AuthProvider,
+      FileOpener
   ]
 })
 export class AppModule {}
