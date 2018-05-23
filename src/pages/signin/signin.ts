@@ -18,7 +18,7 @@ export class SigninPage {
 
     onSignin(form: NgForm) {
         const loading = this.loadingCtrl.create({
-            content: 'Signing you in...'
+            content: 'Einen Moment bitte...'
         });
         loading.present();
         this.authService.signin(form.value.email, form.value.password)
@@ -34,5 +34,32 @@ export class SigninPage {
                 });
                 alert.present();
             });
+    }
+
+    onResetPassword(form: NgForm) {
+        const checking = this.loadingCtrl.create({
+            content: 'Einen Moment bitte...'
+        });
+        checking.present();
+            this.authService.resetPassword(form.value.email)
+        .then( data => {
+            const alert = this.alertCtrl.create({
+                title: 'Email mit Anweisungen versendet an:',
+                message: form.value.email,
+                buttons: ['Ok']
+            })
+            alert.present();
+            checking.dismiss();
+        })
+            .catch( error => {
+                const alert = this.alertCtrl.create({
+                    title: 'Unbekanntes login',
+                    message: "Die oben eingegebene Email-Adresse ist dem System unbekannt: "+form.value.email+".<br> Bitte wenden Sie Sich an sven@bonnvoice.de",
+                    buttons: ['Ok']
+                })
+                alert.present();
+                checking.dismiss();
+            });
+
     }
 }

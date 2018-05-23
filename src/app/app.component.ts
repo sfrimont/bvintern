@@ -39,7 +39,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Terminkalender', component: AndereTerminePage },
-        { title: 'Reportoire', component:HomePage},
+        { title: 'Noten/Übefiles', component:HomePage},
       { title: 'Aufgabenverteilung', component: AufgabenPage},
       { title: 'Bildergalerie', component: BildergaleriePage},
       { title: 'Adressliste', component: AdresslistePage}

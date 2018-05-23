@@ -25,5 +25,8 @@ export class AuthProvider {
     getActiveUser() {
         return firebase.auth().currentUser;
     }
+    resetPassword(password: string) {
+        return firebase.auth().sendPasswordResetEmail(password);
+    }
 
 }

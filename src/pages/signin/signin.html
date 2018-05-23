@@ -14,10 +14,10 @@
 
 
 <ion-content padding>
-  <form #f="ngForm" (ngSubmit)="onSignin(f)">
+  <form #f="ngForm" >
     <ion-list>
       <ion-item>
-        <ion-label fixed>Mail</ion-label>
+        <ion-label floating>E-Mail-Adresse</ion-label>
         <ion-input
                 type="email"
                 ngModel
@@ -25,7 +25,7 @@
                 required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label fixed>Password</ion-label>
+        <ion-label floating>Passwort</ion-label>
         <ion-input
                 type="password"
                 ngModel
@@ -33,6 +33,7 @@
                 required></ion-input>
       </ion-item>
     </ion-list>
-    <button ion-button block type="submit" [disabled]="!f.valid">Signin</button>
+    <button ion-button type="submit" [disabled]="!f.valid" (click)="onSignin(f)">anmelden</button><br>
+    <button ion-button (click)="onResetPassword(f)">Passwort einrichten oder zurücksetzen</button>
   </form>
 </ion-content>
