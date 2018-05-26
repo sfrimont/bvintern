@@ -56,7 +56,7 @@ export class SigninPage {
 
                     const alert = this.alertCtrl.create({
                         title: 'Unbekanntes login',
-                        message: "Die oben eingegebene Email-Adresse ist dem System unbekannt. Vermutlich ist sie noch nicht als Adresse eines Chormitgliedes registriert. Bitte wende Dich an Sven :)<br>Hinweis : Alle im alten internen Bereich benkannten Email-Adressen wurden in das neue System übernommen.",
+                        message: "Die oben eingegebene Email-Adresse ist dem System unbekannt. Vermutlich ist sie noch nicht als Adresse eines Chormitgliedes registriert. Bitte wende Dich an Sven :)<br>Hinweis : Alle im alten internen Bereich bekannten Email-Adressen wurden in das neue System übernommen.",
                         buttons: ['Ok']
                     })
                     alert.present();
