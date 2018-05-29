@@ -13,13 +13,23 @@
 
 <ion-content padding>
 
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content
+				pullingIcon="arrow-dropdown"
+				pullingText="Zum Aktualisieren weiter ziehen"
+				refreshingSpinner="circles"
+				refreshingText="aktualisiere Kalender...">
+		</ion-refresher-content>
+	</ion-refresher>
+
+
 <div *ngIf="dataReady"> 
 
    
 	<ion-list>
 
-	  <ion-list-header><b style="font-size: 1.4em">Mai</b></ion-list-header>
-	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter:'2018-05' text-wrap">
+	 
+	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter text-wrap">
 	    <p *ngIf="termin.start">
 	    	<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span> 
 	    	<!--<span *ngIf="termin.start.date != termin.end.date"> bis {{ termin.end.date | datum}}</span>-->
@@ -27,68 +37,7 @@
 	    <h2>{{ termin.summary }}</h2>
 	  </ion-item>  
 
-	  <ion-list-header><b style="font-size: 1.4em">Juni</b></ion-list-header>
-	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter:'2018-06' text-wrap">
-	    <p *ngIf="termin.start">
-	    	<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span> 
-	    	<!--<span *ngIf="termin.start.date != termin.end.date"> bis {{ termin.end.date | datum}}</span>-->
-	    	<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span></p>
-	    <h2>{{ termin.summary }}</h2>
-	  </ion-item>  
 
-	  <ion-list-header><b style="font-size: 1.4em">Juli</b></ion-list-header>
-	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter:'2018-07' text-wrap">
-	    <p *ngIf="termin.start">
-	    	<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span> 
-	    	<!--<span *ngIf="termin.start.date != termin.end.date"> bis {{ termin.end.date | datum}}</span>-->
-	    	<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span></p>
-	    <h2>{{ termin.summary }}</h2>
-	  </ion-item>  
-
-	  <ion-list-header><b style="font-size: 1.4em">August</b></ion-list-header>
-	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter:'2018-08' text-wrap">
-	    <p *ngIf="termin.start">
-	    	<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span> 
-	    	<!--<span *ngIf="termin.start.date != termin.end.date"> bis {{ termin.end.date | datum}}</span>-->
-	    	<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span></p>
-	    <h2>{{ termin.summary }}</h2>
-	  </ion-item>  
-
-	  <ion-list-header><b style="font-size: 1.4em">September</b></ion-list-header>
-	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter:'2018-09' text-wrap">
-	    <p *ngIf="termin.start">
-	    	<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span> 
-	    	<!--<span *ngIf="termin.start.date != termin.end.date"> bis {{ termin.end.date | datum}}</span>-->
-	    	<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span></p>
-	    <h2>{{ termin.summary }}</h2>
-	  </ion-item>  
-
-	  <ion-list-header><b style="font-size: 1.4em">Oktober</b></ion-list-header>
-	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter:'2018-10' text-wrap">
-	    <p *ngIf="termin.start">
-	    	<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span> 
-	    	<!--<span *ngIf="termin.start.date != termin.end.date"> bis {{ termin.end.date | datum}}</span>-->
-	    	<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span></p>
-	    <h2>{{ termin.summary }}</h2>
-	  </ion-item>  
-
-	  <ion-list-header><b style="font-size: 1.4em">November</b></ion-list-header>
-	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter:'2018-11' text-wrap">
-	    <p *ngIf="termin.start">
-	    	<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span> 
-	    	<!--<span *ngIf="termin.start.date != termin.end.date"> bis {{ termin.end.date | datum}}</span>-->
-	    	<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span></p>
-	    <h2>{{ termin.summary }}</h2>
-	  </ion-item>  
-
-	  <ion-list-header><b style="font-size: 1.4em">Dezember</b></ion-list-header>
-	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter:'2018-12' text-wrap">
-	    <p *ngIf="termin.start">
-	    	<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span> 
-	    	<!--<span *ngIf="termin.start.date != termin.end.date"> bis {{ termin.end.date | datum}}</span>-->
-	    	<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span></p>
-	    <h2>{{ termin.summary }}</h2>
-	  </ion-item>  
 
 
 

@@ -252,12 +252,22 @@ export class HomePage {
 
       this.dropbox.getFolders('/Reportoire').subscribe(data => {
         this.folders = data.entries;
+        this.folders.sort(this.compare);
         loading.dismiss();
       }, (err) => {
         console.log(err);
       });
 
   }
+
+    // Wird für die Sortierung der Dateinamen benötigt.
+    compare(a,b) {
+        if (a.name < b.name)
+            return -1;
+        if (a.name > b.name)
+            return 1;
+        return 0;
+    }
 
   openFolder(path){
  	  let loading = this.loadingCtrl.create({
@@ -269,9 +279,11 @@ export class HomePage {
 	  this.dropbox.getFolders(path).subscribe(data => {
 	    this.folders = data.entries;
 	    let self = this;
-        this.folders.forEach(function(folder) {
-            console.log(folder.path_lower);
 
+        // console.log("Folder:");
+        this.folders.forEach(function(folder) {
+
+             console.log(folder);
 
             self.dropbox.getLink(folder.path_lower).subscribe(data => {
                 self.fileTempLinks[folder.path_lower]= data.link;
@@ -288,6 +300,8 @@ export class HomePage {
 	    console.log(err);
 	  });
 }
+
+
 
   goBack(){
 	 	let loading = this.loadingCtrl.create({
@@ -475,7 +489,6 @@ export class HomePage {
                     subTitle: `musik.mp3 was successfully retrieved from: ${this.storageDirectory}`,
                     buttons: ['Ok']
                 });
-
 
                 return alertSuccess.present();
 

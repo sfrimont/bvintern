@@ -9,11 +9,16 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'terminfilter',
 })
 export class TerminfilterPipe implements PipeTransform {
-  transform(termin: any[], monat:string) {
-  	   var neueTermine = termin.filter(item => ((item.start && item.start.date && item.start.date.substring(0,7)===monat))
-  	   	                                       || item.start && item.start.dateTime && item.start.dateTime.substring(0,7)===monat);
-    console.log(neueTermine);
+
+
+  // Keine Probentermine anzeigen deren Ort noch nicht feststehen
+
+
+  transform(termin: any[]) {
+  	   var neueTermine = termin.filter(item => (item.summary != "Probe (Ort noch unklar)"));
+    // console.log(neueTermine);
     return neueTermine;
   	
   }
+
 }
