@@ -28,7 +28,7 @@
    
 	<ion-list>
 
-	 
+
 	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter text-wrap">
 	    <p *ngIf="termin.start">
 	    	<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span> 

@@ -29,6 +29,8 @@ export class MyApp {
 
     isAuthenticated = false;
 
+    name : string;
+    stimmgruppe : string;
 
   pages: Array<{title: string, component: any}>;
 
@@ -63,11 +65,19 @@ export class MyApp {
           if (user) {
               this.isAuthenticated = true;
               this.rootPage = AndereTerminePage;
+              self = this;
+              let userId = firebase.auth().currentUser.uid;
+              return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+                  self.name = (snapshot.val() && snapshot.val().Name) || 'Anonymous';
+                  self.stimmgruppe = (snapshot.val() && snapshot.val().Stimmgruppe) || 'Anonymous';
+              });
+
           } else {
               this.isAuthenticated = false;
               this.rootPage = SigninPage;
           }
       });
+
 
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
