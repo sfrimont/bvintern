@@ -65,11 +65,11 @@ export class MyApp {
           if (user) {
               this.isAuthenticated = true;
               this.rootPage = AndereTerminePage;
-              self = this;
+              let that=this;
               let userId = firebase.auth().currentUser.uid;
               return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-                  self.name = (snapshot.val() && snapshot.val().Name) || 'Anonymous';
-                  self.stimmgruppe = (snapshot.val() && snapshot.val().Stimmgruppe) || 'Anonymous';
+                  that.name = (snapshot.val() && snapshot.val().Name) || 'Anonymous';
+                  that.stimmgruppe = (snapshot.val() && snapshot.val().Stimmgruppe) || 'Anonymous';
               });
 
           } else {
