@@ -28,6 +28,29 @@
    
 	<ion-list>
 
+		<ion-card *ngFor="let termin of calenderData.items | terminfilter text-wrap">
+			<ion-card-header>
+				<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span>
+				<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span>
+				<h2>{{ termin.summary }}</h2>
+			</ion-card-header>
+			<ion-card-content>
+				<table >
+					<tr>
+						<td>
+							Sopran 1 &nbsp;
+						</td>
+						<td>
+						    <img src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline">
+							<img src="assets/imgs/gruenerPunktKlein.png" style="width:9px; display:inline">
+							<img src="assets/imgs/gruenerPunktKlein.png" style="width:9px; display:inline">
+						</td>
+					</tr>
+				</table>
+				<br>
+				<p>{{ termin.description }}</p>
+			</ion-card-content>
+		</ion-card>
 
 	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter text-wrap">
 	    <p *ngIf="termin.start">
