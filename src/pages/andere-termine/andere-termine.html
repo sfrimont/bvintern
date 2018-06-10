@@ -35,30 +35,78 @@
 				<h2>{{ termin.summary }}</h2>
 			</ion-card-header>
 			<ion-card-content>
+				<!-- <p>{{ termin.description }}</p> -->
+
+				<span>{{setVoiceArrays(termin.id)}}</span>
 				<table >
 					<tr>
 						<td>
-							Sopran 1 &nbsp;
+							Sopran &nbsp;
 						</td>
 						<td>
-						    <img src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline">
-							<img src="assets/imgs/gruenerPunktKlein.png" style="width:9px; display:inline">
-							<img src="assets/imgs/gruenerPunktKlein.png" style="width:9px; display:inline">
+						    <img *ngFor="let voice of sopran" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline;">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Alt &nbsp;
+						</td>
+						<td>
+							<img *ngFor="let voice of alt" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Tenor &nbsp;
+						</td>
+						<td>
+							<img *ngFor="let voice of tenor" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Bass &nbsp;
+						</td>
+						<td>
+							<img *ngFor="let voice of bass" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline">
 						</td>
 					</tr>
 				</table>
-				<br>
-				<p>{{ termin.description }}</p>
 			</ion-card-content>
+			<ion-row no-padding>
+				<ion-col>
+					<button (click)="setAnwesend(termin.id,'nein')" ion-button clear small>absagen</button>
+				</ion-col>
+				<ion-col>
+					<button (click)="setAnwesend(termin.id,'ja')"ion-button clear small>zusagen</button>
+				</ion-col>
+			</ion-row>
+
+			<!--
+			<ion-row no-padding>
+				<ion-col>
+					<button ion-button clear small color="danger" icon-start>
+						<ion-icon name='star'></ion-icon>
+						Favorite
+					</button>
+				</ion-col>
+				<ion-col text-center>
+					<button ion-button clear small color="danger" icon-start>
+						<ion-icon name='musical-notes'></ion-icon>
+						Listen
+					</button>
+				</ion-col>
+				<ion-col text-right>
+					<button ion-button clear small color="danger" icon-start>
+						<ion-icon name='share-alt'></ion-icon>
+						Share
+					</button>
+				</ion-col>
+			</ion-row>
+			-->
 		</ion-card>
 
-	  <ion-item ion-item *ngFor="let termin of calenderData.items | terminfilter text-wrap">
-	    <p *ngIf="termin.start">
-	    	<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span> 
-	    	<!--<span *ngIf="termin.start.date != termin.end.date"> bis {{ termin.end.date | datum}}</span>-->
-	    	<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span></p>
-	    <h2>{{ termin.summary }}</h2>
-	  </ion-item>  
+
 
 
 
