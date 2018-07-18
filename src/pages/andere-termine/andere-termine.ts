@@ -4,6 +4,8 @@ import { KalenderProvider } from '../../providers/kalender/kalender';
 import { NavController } from 'ionic-angular';
 import firebase from 'firebase';
 
+
+
 /**
  * Generated class for the AndereTerminePage page.
  *
@@ -23,13 +25,14 @@ export class AndereTerminePage {
   public refresher: any;
 
   public  sopran = new Array();
-  //public  sopran2 = new Array();
+  public  sopran2 = new Array();
   public  alt = new Array();
-  //public  alt2 = new Array();
+  public  alt2 = new Array();
   public  tenor = new Array();
-  //public  bariton = new Array();
+  public  bariton = new Array();
   public  bass = new Array();
 
+  public userAnwesend = {};
 
   constructor(private bvKalenderService:KalenderProvider, public navCtrl: NavController) {
    this.getCalData();
@@ -45,6 +48,7 @@ export class AndereTerminePage {
     .then(data => {
       this.calenderData = data;
       this.dataReady=true;
+      this.initVoiceArrays();
     });
   }
 
@@ -56,6 +60,7 @@ export class AndereTerminePage {
             });
     }
 
+
     setAnwesend(eventID,status) {
         //let database = firebase.database();
         let user = firebase.auth().currentUser;
@@ -65,20 +70,57 @@ export class AndereTerminePage {
     }
 
 
-    setVoiceArrays(eventID) {
+
+    /*
+    initAnwesenheitMap(eventID) {
+        let database = firebase.database();
+        let anwesend = database.ref('/termine/'+eventID);
+        let that = this;
+        anwesend.on("value", function(snap) {
+            snap.forEach(function (childSnap) {
+                that.userAnwesend[childSnap.toString()] = "ja";// childSnap.child.val().anwesend;
+            });
+        });
+    }
+    */
+
+    getAnwesend(userID,eventID) {
+
+        //firebase.database().ref('/termine/'+eventID+'/' + userID).toString()
+        let database= firebase.database();
+        let anwesend = database.ref('/termine/'+eventID+'/' + userID);
+        let that = this;
+        /*
+        return new Promise((resolve,reject) => {
+            resolve("ja");
+
+            anwesend.on("value", function(snap) {
+                // resolve(snap.val().anwesend);
+                resolve("ja");
+            });
+
+        });
+
+        return new Observable<string>((observer: Observer<string>) => {
+            setInterval(() => observer.next(new Date().toString()), 1000)
+        });*/
+        return "ja";
+    }
+
+
+    initVoiceArrays() {
 
       let database = firebase.database();
-      let user = firebase.auth().currentUser;
-      let anwesend = database.ref('/users');
+      let users = database.ref('/users');
       let that = this;
-      anwesend.on("value", function (snap) {
+      users.on("value", function (snap) {
 
           that.sopran = new Array();
-          //that.sopran2 = new Array();
+          that.sopran2 = new Array();
           that.alt = new Array();
-          //that.alt2 = new Array();
+          that.alt2 = new Array();
           that.tenor = new Array();
-          //that.bariton = new Array();
+          that.bariton = new Array();
           that.bass = new Array();
 
 
@@ -86,27 +128,27 @@ export class AndereTerminePage {
 
 
             if (childSnap.val().Stimmgruppe == "Sopran 1") {
-                that.sopran.push(user.uid);
+                that.sopran.push(snap.val());
             }
 
              if (childSnap.val().Stimmgruppe == "Sopran 2") {
-                 that.sopran.push(user.uid);
+                 that.sopran2.push(snap.val());
              }
 
              if (childSnap.val().Stimmgruppe == "Alt 1") {
-                 that.alt.push(user.uid);
+                 that.alt.push(snap.val());
              }
              if (childSnap.val().Stimmgruppe == "Alt 2") {
-                 that.alt.push(user.uid);
+                 that.alt2.push(snap.val());
              }
              if (childSnap.val().Stimmgruppe == "Tenor") {
-                 that.tenor.push(user.uid);
+                 that.tenor.push(snap.val());
              }
              if (childSnap.val().Stimmgruppe == "Bariton") {
-                 that.bass.push(user.uid);
+                 that.bariton.push(snap.val());
              }
              if (childSnap.val().Stimmgruppe == "Bass") {
-                 that.bass.push(user.uid);
+                 that.bass.push(snap.val());
              }
 
 

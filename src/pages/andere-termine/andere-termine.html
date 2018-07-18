@@ -37,7 +37,7 @@
 			<ion-card-content>
 				<!-- <p>{{ termin.description }}</p> -->
 
-				<span>{{setVoiceArrays(termin.id)}}</span>
+
 				<table >
 					<tr>
 						<td>
@@ -45,6 +45,8 @@
 						</td>
 						<td>
 						    <img *ngFor="let voice of sopran" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline;">
+							|
+							<img *ngFor="let voice of sopran2" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline;">
 						</td>
 					</tr>
 					<tr>
@@ -53,6 +55,8 @@
 						</td>
 						<td>
 							<img *ngFor="let voice of alt" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline">
+							|
+							<img *ngFor="let voice of alt2" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline;">
 						</td>
 					</tr>
 					<tr>
@@ -61,6 +65,7 @@
 						</td>
 						<td>
 							<img *ngFor="let voice of tenor" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline">
+
 						</td>
 					</tr>
 					<tr>
@@ -68,7 +73,14 @@
 							Bass &nbsp;
 						</td>
 						<td>
-							<img *ngFor="let voice of bass" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline">
+							<span *ngFor="let voice of bariton">
+								<span style="color: red; font-size: 2em">•</span>
+								<span style="color: lightgrey; font-size:2em">•</span>
+								<span  style="color: green; font-size: 2em">•</span>
+								{{ getAnwesend(1,1) }}
+							</span>
+							|
+							<img *ngFor="let voice of bass" src="assets/imgs/gruenerPunktKlein.png" style="width:9px;display:inline;">
 						</td>
 					</tr>
 				</table>
