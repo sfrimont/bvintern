@@ -13,6 +13,8 @@ import { KalenderPage } from '../pages/kalender/kalender';
 import { AndereTerminePage } from '../pages/andere-termine/andere-termine';
 import { HomePage } from '../pages/home/home';
 
+import { AnwesenheitPage } from '../pages/anwesenheit/anwesenheit';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { KalenderProvider } from '../providers/kalender/kalender';
@@ -52,7 +54,8 @@ export function myCustomAudioProviderFactory() {
     AndereTerminePage,
     HomePage,
       SigninPage,
-      AudioplayerPage
+      AudioplayerPage,
+      AnwesenheitPage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,8 @@ export function myCustomAudioProviderFactory() {
     AndereTerminePage,
     HomePage,
       SigninPage,
-      AudioplayerPage
+      AudioplayerPage,
+      AnwesenheitPage
   ],
   providers: [
     StatusBar,

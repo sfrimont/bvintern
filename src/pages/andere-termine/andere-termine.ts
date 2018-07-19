@@ -5,7 +5,7 @@ import { NavController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import firebase from 'firebase';
 
-
+import { AnwesenheitPage } from '../anwesenheit/anwesenheit';
 
 /**
  * Generated class for the AndereTerminePage page.
@@ -34,6 +34,9 @@ export class AndereTerminePage {
   public  tenor = new Array();
   public  bariton = new Array();
   public  bass = new Array();
+
+    // zur Speicherung der Vornamen. Nach einem späteren Refactoring gibt es nur noch ein Objekt pro Stimme...
+    public  namen = {};
 
   public anwesend = {};
 
@@ -113,9 +116,12 @@ export class AndereTerminePage {
 
          snap.forEach(function (childSnap) {
 
+             // Alle Namen in einer Hashtabelle merken (besser: gleich Objekte für User speichern..)
+             that.namen[childSnap.key]=childSnap.val().Name;
 
             if (childSnap.val().Stimmgruppe == "Sopran 1") {
                 that.sopran.push(childSnap.key);
+
             }
 
              if (childSnap.val().Stimmgruppe == "Sopran 2") {
@@ -144,14 +150,14 @@ export class AndereTerminePage {
       });
     }
 
-    stimmen() {
+    stimmen(terminID,anwesend, namen, sopran,sopran2,alt,alt2,tenor,bariton,bass) {
         console.log("hallo");
-        /*
-        let popover = this.popoverCtrl.create(PopoverPage);
+
+        let popover = this.popoverCtrl.create(AnwesenheitPage, {id: terminID,anwesend:anwesend, namen:namen, sopran: sopran, sopran2: sopran2, alt:alt, alt2:alt2, tenor:tenor, bariton:bariton, bass:bass});
         popover.present({
-            ev: myEvent
+
         });
-        */
+
     }
 
     /*
