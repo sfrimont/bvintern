@@ -88,9 +88,9 @@ export class AndereTerminePage {
                     //console.log("user: "+user.key);
                     //console.log("anwesend: "+user.val().anwesend)
                     that.anwesend[childSnap.key][user.key]=user.val().anwesend;
-                    
+                return false;
                 });
-
+                return false;
             });
         });
     }
