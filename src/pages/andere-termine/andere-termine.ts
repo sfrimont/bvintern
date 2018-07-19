@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { KalenderProvider } from '../../providers/kalender/kalender';
 import { NavController } from 'ionic-angular';
-import { PopoverController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import firebase from 'firebase';
 
 import { AnwesenheitPage } from '../anwesenheit/anwesenheit';
@@ -40,7 +40,7 @@ export class AndereTerminePage {
 
   public anwesend = {};
 
-  constructor(private bvKalenderService:KalenderProvider, public navCtrl: NavController, public popoverCtrl: PopoverController) {
+  constructor(private bvKalenderService:KalenderProvider, public navCtrl: NavController, public modalCtrl: ModalController) {
    this.getCalData();
    this.dataReady=false;
    this.initAnwesendArray();
@@ -153,8 +153,8 @@ export class AndereTerminePage {
     stimmen(terminID,anwesend, namen, sopran,sopran2,alt,alt2,tenor,bariton,bass) {
         console.log("hallo");
 
-        let popover = this.popoverCtrl.create(AnwesenheitPage, {id: terminID,anwesend:anwesend, namen:namen, sopran: sopran, sopran2: sopran2, alt:alt, alt2:alt2, tenor:tenor, bariton:bariton, bass:bass});
-        popover.present({
+        let modal = this.modalCtrl.create(AnwesenheitPage, {id: terminID,anwesend:anwesend, namen:namen, sopran: sopran, sopran2: sopran2, alt:alt, alt2:alt2, tenor:tenor, bariton:bariton, bass:bass});
+        modal.present({
 
         });
 
