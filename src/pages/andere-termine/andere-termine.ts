@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { KalenderProvider } from '../../providers/kalender/kalender';
 import { NavController } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
 import firebase from 'firebase';
 
 
@@ -20,6 +21,8 @@ import firebase from 'firebase';
 })
 export class AndereTerminePage {
 
+    public user = firebase.auth().currentUser.uid;
+
   public calenderData:any;
   public dataReady:boolean;
   public refresher: any;
@@ -32,11 +35,12 @@ export class AndereTerminePage {
   public  bariton = new Array();
   public  bass = new Array();
 
-  public userAnwesend = {};
+  public anwesend = {};
 
-  constructor(private bvKalenderService:KalenderProvider, public navCtrl: NavController) {
+  constructor(private bvKalenderService:KalenderProvider, public navCtrl: NavController, public popoverCtrl: PopoverController) {
    this.getCalData();
    this.dataReady=false;
+   this.initAnwesendArray();
   }
 
     doRefresh(rf) {
@@ -71,42 +75,25 @@ export class AndereTerminePage {
 
 
 
-    /*
-    initAnwesenheitMap(eventID) {
+
+    initAnwesendArray() {
         let database = firebase.database();
-        let anwesend = database.ref('/termine/'+eventID);
+        let anwesend = database.ref('/termine/');
         let that = this;
         anwesend.on("value", function(snap) {
             snap.forEach(function (childSnap) {
-                that.userAnwesend[childSnap.toString()] = "ja";// childSnap.child.val().anwesend;
+                //console.log("termin: "+childSnap.key);// childSnap.child.val().anwesend;
+                that.anwesend[childSnap.key]={};
+                childSnap.forEach(function (user) {
+                    //console.log("user: "+user.key);
+                    //console.log("anwesend: "+user.val().anwesend)
+                    that.anwesend[childSnap.key][user.key]=user.val().anwesend;
+                    
+                });
+
             });
         });
     }
-    */
-
-    getAnwesend(userID,eventID) {
-
-        //firebase.database().ref('/termine/'+eventID+'/' + userID).toString()
-        let database= firebase.database();
-        let anwesend = database.ref('/termine/'+eventID+'/' + userID);
-        let that = this;
-        /*
-        return new Promise((resolve,reject) => {
-            resolve("ja");
-
-            anwesend.on("value", function(snap) {
-                // resolve(snap.val().anwesend);
-                resolve("ja");
-            });
-
-        });
-
-        return new Observable<string>((observer: Observer<string>) => {
-            setInterval(() => observer.next(new Date().toString()), 1000)
-        });*/
-        return "ja";
-    }
-
 
     initVoiceArrays() {
 
@@ -128,29 +115,28 @@ export class AndereTerminePage {
 
 
             if (childSnap.val().Stimmgruppe == "Sopran 1") {
-                that.sopran.push(snap.val());
+                that.sopran.push(childSnap.key);
             }
 
              if (childSnap.val().Stimmgruppe == "Sopran 2") {
-                 that.sopran2.push(snap.val());
+                 that.sopran2.push(childSnap.key);
              }
 
              if (childSnap.val().Stimmgruppe == "Alt 1") {
-                 that.alt.push(snap.val());
+                 that.alt.push(childSnap.key);
              }
              if (childSnap.val().Stimmgruppe == "Alt 2") {
-                 that.alt2.push(snap.val());
+                 that.alt2.push(childSnap.key);
              }
              if (childSnap.val().Stimmgruppe == "Tenor") {
-                 that.tenor.push(snap.val());
+                 that.tenor.push(childSnap.key);
              }
              if (childSnap.val().Stimmgruppe == "Bariton") {
-                 that.bariton.push(snap.val());
+                 that.bariton.push(childSnap.key);
              }
              if (childSnap.val().Stimmgruppe == "Bass") {
-                 that.bass.push(snap.val());
+                 that.bass.push(childSnap.key);
              }
-
 
              return false;
          });
@@ -158,6 +144,15 @@ export class AndereTerminePage {
       });
     }
 
+    stimmen() {
+        console.log("hallo");
+        /*
+        let popover = this.popoverCtrl.create(PopoverPage);
+        popover.present({
+            ev: myEvent
+        });
+        */
+    }
 
     /*
     setVoiceArrays(termin)
