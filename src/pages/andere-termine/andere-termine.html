@@ -34,6 +34,7 @@
 				<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span>
 				<span *ngIf="anwesend[termin.id] && anwesend[termin.id][user]=='ja'" style="color:green"> - anwesend!</span>
 				<span *ngIf="anwesend[termin.id] && anwesend[termin.id][user]=='nein'" style="color:red"> - abwesend!</span>
+				<span *ngIf="anwesend[termin.id] && anwesend[termin.id][user]=='unsicher'" style="color:yellow"> - unsicher!</span>
 				<h2>{{ termin.summary }}</h2>
 			</ion-card-header>
 			<ion-card-content>
@@ -50,12 +51,14 @@
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
 								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color: yellow; font-size: 2em">•</span>
 							</span>
 							|
 							<span *ngFor="let voice of sopran2">
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
 								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color: yellow; font-size: 2em">•</span>
 							</span>
 						</td>
 					</tr>
@@ -68,12 +71,14 @@
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
 								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color: yellow; font-size: 2em">•</span>
 							</span>
 							|
 							<span *ngFor="let voice of alt2">
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
 								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color: yellow; font-size: 2em">•</span>
 							</span>
 						</td>
 					</tr>
@@ -86,6 +91,7 @@
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
 								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color: yellow; font-size: 2em">•</span>
 							</span>
 
 						</td>
@@ -99,12 +105,14 @@
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
 								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color: yellow; font-size: 2em">•</span>
 							</span>
                             |
 							<span *ngFor="let voice of bass">
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
 								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color: yellow; font-size: 2em">•</span>
 							</span>
 						</td>
 					</tr>
@@ -115,7 +123,7 @@
 					<button (click)="setAnwesend(termin.id,'ja')"ion-button full outline small>zusagen</button>
 				</ion-col>
 				<ion-col>
-					<button (click)="setAnwesend(termin.id,'vielleicht')"ion-button full outline small>keine Angabe</button>
+					<button (click)="setAnwesend(termin.id,'unsicher')"ion-button full outline small>unsicher</button>
 				</ion-col>
 				<ion-col>
 					<button (click)="setAnwesend(termin.id,'nein')" ion-button full block outline small>absagen</button>
