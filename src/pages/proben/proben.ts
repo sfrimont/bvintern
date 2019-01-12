@@ -3,6 +3,7 @@ import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angula
 import {AnwesenheitPage} from "../anwesenheit/anwesenheit";
 import {KalenderProvider} from "../../providers/kalender/kalender";
 import firebase from 'firebase';
+import {AnwesenheitProbePage} from "../anwesenheit-probe/anwesenheit-probe";
 
 /**
  * Generated class for the ProbenPage page.
@@ -149,7 +150,7 @@ export class ProbenPage {
     stimmen(terminID,anwesend, namen, sopran,sopran2,alt,alt2,tenor,bariton,bass) {
         console.log("hallo");
 
-        let modal = this.modalCtrl.create(AnwesenheitPage, {id: terminID,anwesend:anwesend, namen:namen, sopran: sopran, sopran2: sopran2, alt:alt, alt2:alt2, tenor:tenor, bariton:bariton, bass:bass});
+        let modal = this.modalCtrl.create(AnwesenheitProbePage, {id: terminID,anwesend:anwesend, namen:namen, sopran: sopran, sopran2: sopran2, alt:alt, alt2:alt2, tenor:tenor, bariton:bariton, bass:bass});
         modal.present({
 
         });

@@ -15,6 +15,7 @@ import { HomePage } from '../pages/home/home';
 import { ProbenPage } from '../pages/proben/proben';
 
 import { AnwesenheitPage } from '../pages/anwesenheit/anwesenheit';
+import { AnwesenheitProbePage } from "../pages/anwesenheit-probe/anwesenheit-probe";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -57,7 +58,8 @@ export function myCustomAudioProviderFactory() {
     HomePage,
       SigninPage,
       AudioplayerPage,
-      AnwesenheitPage
+      AnwesenheitPage,
+      AnwesenheitProbePage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,8 @@ export function myCustomAudioProviderFactory() {
     HomePage,
       SigninPage,
       AudioplayerPage,
-      AnwesenheitPage
+      AnwesenheitPage,
+      AnwesenheitProbePage
   ],
   providers: [
     StatusBar,
