@@ -15,7 +15,7 @@ export class TerminfilterPipe implements PipeTransform {
 
 
   transform(termin: any[]) {
-  	   var neueTermine = termin.filter(item => (item.summary != "Probe (Ort noch unklar)"));
+  	   var neueTermine = termin.filter(item => (!item.summary.includes("Probe")));
     // console.log(neueTermine);
     return neueTermine;
   	

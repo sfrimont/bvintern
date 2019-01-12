@@ -5,7 +5,7 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Terminkalender</ion-title>
+    <ion-title>Konzert-Termine</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -21,7 +21,13 @@
 				refreshingText="aktualisiere Kalender...">
 		</ion-refresher-content>
 	</ion-refresher>
-
+	<ion-card>
+		<ion-card-header>Neues in der App:</ion-card-header>
+		<ion-card-content>
+			- Mit "unsicher" kann hier jetzt ein "gelber" Punkt gesetzt werden<br>
+			- Die Proben sind jetzt auf einer eigenen Seite
+		</ion-card-content>
+	</ion-card>
 
 <div *ngIf="dataReady"> 
 

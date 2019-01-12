@@ -12,6 +12,7 @@ import { AdresslistePage } from '../pages/adressliste/adressliste';
 import { KalenderPage } from '../pages/kalender/kalender';
 import { AndereTerminePage } from '../pages/andere-termine/andere-termine';
 import { HomePage } from '../pages/home/home';
+import { ProbenPage } from '../pages/proben/proben';
 
 import { AnwesenheitPage } from '../pages/anwesenheit/anwesenheit';
 
@@ -52,6 +53,7 @@ export function myCustomAudioProviderFactory() {
     BildergaleriePage,
     AdresslistePage,
     AndereTerminePage,
+      ProbenPage,
     HomePage,
       SigninPage,
       AudioplayerPage,
@@ -70,6 +72,7 @@ export function myCustomAudioProviderFactory() {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+      ProbenPage,
     KalenderPage,
     ListPage,
     AufgabenPage,
