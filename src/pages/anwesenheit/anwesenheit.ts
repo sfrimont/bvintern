@@ -17,6 +17,7 @@ import { ViewController } from 'ionic-angular';
 export class AnwesenheitPage {
 
   public terminID;
+  public terminTitel;
   public sopran;
   public sopran2;
   public alt;
@@ -30,6 +31,7 @@ export class AnwesenheitPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
       this.terminID = this.navParams.get('id');
+      this.terminTitel = this.navParams.get('terminTitel');
       this.anwesend = this.navParams.get('anwesend');
       this.namen = this.navParams.get('namen');
       this.sopran = this.navParams.get('sopran');
