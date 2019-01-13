@@ -78,7 +78,7 @@
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
 								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
-								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color: yellow; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
 							</span>
 							|
 							<span *ngFor="let voice of sopran2">
