@@ -54,7 +54,7 @@
     <p>
     <span *ngFor="let voice of alt2">
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
-        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: lightgrey;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span><
+        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: lightgrey;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
     </span>
