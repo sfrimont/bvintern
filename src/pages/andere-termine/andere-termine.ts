@@ -22,6 +22,7 @@ import { AnwesenheitPage } from '../anwesenheit/anwesenheit';
 export class AndereTerminePage {
 
     public user = firebase.auth().currentUser.uid;
+    public name: string;
 
   public calenderData:any;
   public dataReady:boolean;
@@ -76,8 +77,38 @@ export class AndereTerminePage {
         });
     }
 
+    anzahlNichtsAusgewaehlt() {
+        let counter = 0;
+        if (this.calenderData) {
 
+            for (let termin of this.calenderData.items) {
+                if (!termin.summary.includes("Probe")) {
+                    if (!(this.anwesend[termin.id] && this.anwesend[termin.id][this.user]) || this.anwesend[termin.id] && this.anwesend[termin.id][this.user] == 'vielleicht') {
+                        counter++;
+                    }
+                }
+            }
+        }
+        return counter;
+    }
 
+    anzahlUnsicherAusgewaehlt()
+    {
+
+        let counter = 0;
+        if (this.calenderData) {
+
+            for (let termin of this.calenderData.items) {
+                if (!termin.summary.includes("Probe")) {
+                    if (this.anwesend[termin.id] && this.anwesend[termin.id][this.user]=='unsicher') {
+                        counter++;
+                    }
+                }
+            }
+        }
+
+        return counter
+    }
 
     initAnwesendArray() {
         let database = firebase.database();

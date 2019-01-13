@@ -30,6 +30,24 @@
 			</ul>
 		</ion-card-content>
 	</ion-card>
+	<ion-card>
+		<ion-card-content *ngIf="anzahlNichtsAusgewaehlt()!=0">
+			Du hast momentan für {{ anzahlNichtsAusgewaehlt() }} Konzert(e) noch keine Auswahl getroffen.
+			Bitte scrolle durch die Liste und wähle für jedes Konzert eine der drei möglichen Antworten. Wenn Du
+			zu dem jetzigen Zeitpunkt bei einigen Terminen noch nicht sicher bist, wähle "unsicher" und ändere
+			Deine Antwort dann irgendwann später in eine Zusage oder eine Absage, so erhalten wir schon frühzeitig einen
+			ungefähren Überblick. Danke :-)
+		</ion-card-content>
+		<ion-card-content *ngIf="anzahlNichtsAusgewaehlt()==0">
+			Du hast für alle Konzerte eine Auswahl getroffen, vielen Dank!
+		</ion-card-content>
+	</ion-card>
+	<ion-card *ngIf="anzahlUnsicherAusgewaehlt()!=0">
+		<ion-card-content>
+			Es gibt Konzerte für die Du "unsicher" ausgewählt hast. Bitte denke daran für diese Termine eine Zusage
+			oder eine Absage einzutragen, sobald Du Dir sicher bist. Danke :-)
+		</ion-card-content>
+	</ion-card>
 
 <div *ngIf="dataReady"> 
 
