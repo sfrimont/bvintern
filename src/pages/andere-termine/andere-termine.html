@@ -5,7 +5,7 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Konzert-Termine</ion-title>
+	  <ion-title>Konzert-Termine (<span style="color: grey; ">{{anzahlNichtsAusgewaehlt()}}</span>/<span style="color:#e0ac00">{{anzahlUnsicherAusgewaehlt()}}</span>)</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -26,7 +26,8 @@
 		<ion-card-content>
 			<ul>
 				<li>Mit "unsicher" kann hier jetzt ein "gelber" Punkt gesetzt werden</li>
-				<li>Die Proben sind jetzt auf einer eigenen Seite</li>
+				<li>Oben im Titel der Seite gibt es die Anzeige (<span style="color: grey; ">fehlende Auswahl</span> / <span style="color:#e0ac00">unsicher</span>)</li>
+				<li>Die Proben sind jetzt auf einer eigenen Seite aufgelistet</li>
 			</ul>
 		</ion-card-content>
 	</ion-card>
