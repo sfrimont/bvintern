@@ -13,7 +13,7 @@ export class ProbenfilterPipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(termin: any[]) {
-      var neueTermine = termin.filter(item => (item.summary.includes("Probe")));
+      var neueTermine = termin.filter(item => (item.summary.includes("Probe ")));
       // console.log(neueTermine);
       return neueTermine;
 
