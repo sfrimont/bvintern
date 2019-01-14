@@ -41,7 +41,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Konzert-Termine', component: AndereTerminePage },
+      { title: 'Termine', component: AndereTerminePage },
         { title: 'Proben', component: ProbenPage },
         { title: 'Noten/Übefiles', component:HomePage},
       { title: 'Aufgabenverteilung', component: AufgabenPage},
