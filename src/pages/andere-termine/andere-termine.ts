@@ -82,7 +82,7 @@ export class AndereTerminePage {
         if (this.calenderData) {
 
             for (let termin of this.calenderData.items) {
-                if (!termin.summary.includes("Probe")) {
+                if (!termin.summary.includes("Probe ")) {
                     if (!(this.anwesend[termin.id] && this.anwesend[termin.id][this.user]) || this.anwesend[termin.id] && this.anwesend[termin.id][this.user] == 'vielleicht') {
                         counter++;
                     }
@@ -99,7 +99,7 @@ export class AndereTerminePage {
         if (this.calenderData) {
 
             for (let termin of this.calenderData.items) {
-                if (!termin.summary.includes("Probe")) {
+                if (!termin.summary.includes("Probe ")) {
                     if (this.anwesend[termin.id] && this.anwesend[termin.id][this.user]=='unsicher') {
                         counter++;
                     }
