@@ -182,7 +182,7 @@ export class AndereTerminePage {
     }
 
     stimmen(terminID,terminTitel,anwesend, namen, sopran,sopran2,alt,alt2,tenor,bariton,bass) {
-        console.log("hallo");
+
 
         let modal = this.modalCtrl.create(AnwesenheitPage, {id: terminID,anwesend:anwesend, terminTitel:terminTitel, namen:namen, sopran: sopran, sopran2: sopran2, alt:alt, alt2:alt2, tenor:tenor, bariton:bariton, bass:bass});
         modal.present({
