@@ -210,7 +210,7 @@ export class AnwesenheitPage {
     aktualisiereSummen() {
 
     this.zusagen = this.zusageSopran1+this.zusageSopran2+this.zusageAlt1+this.zusageAlt2+this.zusageTenor+this.zusageBariton+this.zusageBass;
-    this.absagen = this.absageSopran2+this.absageSopran2+this.absageAlt1+this.absageAlt2+this.absageTenor+this.absageBariton+this.absageBass;
+    this.absagen = this.absageSopran1+this.absageSopran2+this.absageAlt1+this.absageAlt2+this.absageTenor+this.absageBariton+this.absageBass;
     this.unsicher = this.unsicherSopran1+this.unsicherSopran2+this.unsicherAlt1+this.unsicherAlt2+this.unsicherTenor+this.unsicherBariton+this.unsicherBass;
     this.keineAngabe = this.keineAngabeSopran1+this.keineAngabeSopran2+this.keineAngabeAlt1+this.keineAngabeAlt2+this.keineAngabeTenor+this.keineAngabeBariton+this.keineAngabeBass;
 
