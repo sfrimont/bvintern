@@ -23,7 +23,7 @@
 <ion-content padding >
 
           <ion-list>
-              <ion-list-header>Anzahl Chormitglieder: <span item-content>{{ zusagen+absagen+unsicher+keineAngabe }}</span></ion-list-header>
+              <ion-list-header>Anzahl Chormitglieder: <span>{{ zusagen+absagen+unsicher+keineAngabe }}</span></ion-list-header>
               <ion-item>Zusagen:<span item-content style="color: green">{{ zusagen }}</span></ion-item>
               <ion-item>Absagen:<span item-content style="color: red">{{ absagen }}</span></ion-item>
               <ion-item>unsicher:<span item-content style="color:#e0ac00">{{ unsicher }}</span></ion-item>
@@ -43,7 +43,8 @@
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
     </span>
     </ion-item>
-
+    </ion-list>
+    <ion-list>
     <ion-item-divider>Sopran 2 (<span style="color: green">{{ zusageSopran2 }}</span> von
         {{ zusageSopran2 + absageSopran2 + unsicherSopran2 + keineAngabeSopran2 }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageSopran2 }}</span>/
         <span style="color:#e0ac00">{{ unsicherSopran2 }}</span>/<span style="color: grey;">{{ keineAngabeSopran2 }}</span>)</span></ion-item-divider>
@@ -56,7 +57,8 @@
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
     </span>
 </ion-item>
-
+    </ion-list>
+    <ion-list>
     <ion-item-divider>Alt 1 (<span style="color: green">{{ zusageAlt1 }}</span> von
         {{ zusageAlt1 + absageAlt1 + unsicherAlt1 + keineAngabeAlt1 }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageAlt1 }}</span>/
         <span style="color:#e0ac00">{{ unsicherAlt1 }}</span>/<span style="color: grey;">{{ keineAngabeAlt1 }}</span>)</span></ion-item-divider>
@@ -70,7 +72,8 @@
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
     </span>
     </ion-item>
-
+    </ion-list>
+    <ion-list>
     <ion-item-divider>Alt 2 (<span style="color: green">{{ zusageAlt2 }}</span> von
         {{ zusageAlt2 + absageAlt2 + unsicherAlt2 + keineAngabeAlt2 }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageAlt2 }}</span>/
         <span style="color:#e0ac00">{{ unsicherAlt2 }}</span>/<span style="color: grey;">{{ keineAngabeAlt2 }}</span>)</span></ion-item-divider>
@@ -85,7 +88,8 @@
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
     </span>
         </ion-item>
-
+    </ion-list>
+    <ion-list>
     <ion-item-divider>Tenor (<span style="color: green">{{ zusageTenor }}</span> von
         {{ zusageTenor + absageTenor + unsicherTenor + keineAngabeTenor }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageTenor }}</span>/
         <span style="color:#e0ac00">{{ unsicherTenor }}</span>/<span style="color: grey;">{{ keineAngabeTenor }}</span>)</span></ion-item-divider>
@@ -98,7 +102,8 @@
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
     </span>
     </ion-item>
-
+    </ion-list>
+    <ion-list>
     <ion-item-divider>Bariton (<span style="color: green">{{ zusageBariton }}</span> von
         {{ zusageBariton + absageBariton + unsicherBariton + keineAngabeBariton }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageBariton }}</span>/
         <span style="color:#e0ac00">{{ unsicherBariton }}</span>/<span style="color: grey;">{{ keineAngabeBariton }}</span>)</span></ion-item-divider>
@@ -113,7 +118,8 @@
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
     </span>
     </ion-item>
-
+    </ion-list>
+    <ion-list>
     <ion-item-divider>Bass (<span style="color: green">{{ zusageBass }}</span> von
         {{ zusageBass + absageBass + unsicherBass + keineAngabeBass }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageBass }}</span>/
         <span style="color:#e0ac00">{{ unsicherBass }}</span>/<span style="color: grey;">{{ keineAngabeBass }}</span>)</span></ion-item-divider>
