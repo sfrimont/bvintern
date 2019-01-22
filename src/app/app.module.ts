@@ -13,6 +13,7 @@ import { KalenderPage } from '../pages/kalender/kalender';
 import { AndereTerminePage } from '../pages/andere-termine/andere-termine';
 import { HomePage } from '../pages/home/home';
 import { ProbenPage } from '../pages/proben/proben';
+import { ProbenProtokollPage } from '../pages/proben-protokoll/proben-protokoll';
 
 import { AnwesenheitPage } from '../pages/anwesenheit/anwesenheit';
 import { AnwesenheitProbePage } from "../pages/anwesenheit-probe/anwesenheit-probe";
@@ -59,7 +60,8 @@ export function myCustomAudioProviderFactory() {
       SigninPage,
       AudioplayerPage,
       AnwesenheitPage,
-      AnwesenheitProbePage
+      AnwesenheitProbePage,
+      ProbenProtokollPage
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,7 @@ export function myCustomAudioProviderFactory() {
     BildergaleriePage,
     AdresslistePage,
     AndereTerminePage,
+       ProbenProtokollPage,
     HomePage,
       SigninPage,
       AudioplayerPage,

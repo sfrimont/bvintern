@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from 'firebase';
 import { SigninPage } from "../pages/signin/signin";
 
+import { ProbenProtokollPage} from "../pages/proben-protokoll/proben-protokoll";
+
 import { HomePage } from '../pages/home/home';
 //import { ListPage } from '../pages/list/list';
 import { AufgabenPage } from '../pages/aufgaben/aufgaben';
@@ -43,6 +45,7 @@ export class MyApp {
     this.pages = [
       { title: 'Termine', component: AndereTerminePage },
         { title: 'Proben', component: ProbenPage },
+        { title: 'Rückblick', component: ProbenProtokollPage },
         { title: 'Noten/Übefiles', component:HomePage},
       { title: 'Aufgabenverteilung', component: AufgabenPage},
       { title: 'Bildergalerie', component: BildergaleriePage},

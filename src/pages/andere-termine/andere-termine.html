@@ -21,17 +21,16 @@
 				refreshingText="aktualisiere Kalender...">
 		</ion-refresher-content>
 	</ion-refresher>
+	<!--
 	<ion-card>
-		<ion-card-header>Neues in der App:</ion-card-header>
 		<ion-card-content>
 			<ul>
-				<li>Mit "unsicher" kann hier jetzt ein "gelber" Punkt gesetzt werden</li>
-				<li>Oben im Titel der Seite gibt es die Anzeige (<span style="color: grey; ">fehlende Auswahl</span> / <span style="color:#e0ac00">unsicher</span>)</li>
-        <li>Auf dieser Seite werden alle Termine außerhalb der wöchentlichen Proben angezeigt (z.B. Konzerte und Probewochenenden)</li>
-				<li>Die Proben sind jetzt auf einer eigenen Seite aufgelistet</li>
+				<li>Die Proben sind auf einer eigenen Seite aufgelistet</li>
+				<li>Auf der Seite "Rückblick" findest Du vergangene Probentermine</li>
 			</ul>
 		</ion-card-content>
 	</ion-card>
+	-->
 	<ion-card>
 		<ion-card-content *ngIf="anzahlNichtsAusgewaehlt()!=0">
 			Du hast momentan für {{ anzahlNichtsAusgewaehlt() }} Termin(e) noch keine Auswahl getroffen.
@@ -57,6 +56,8 @@
 	<ion-list>
 
 		<ion-card *ngFor="let termin of calenderData.items | terminfilter text-wrap">
+
+			<div (click)="stimmen(termin.id, termin.summary, anwesend,namen,sopran,sopran2,alt,alt2,tenor,bariton,bass)">
 			<ion-card-header>
 				<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span>
 				<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span>
@@ -65,11 +66,10 @@
 				<span *ngIf="anwesend[termin.id] && anwesend[termin.id][user]=='unsicher'" style="color:#e0ac00"> - unsicher!</span>
 				<h2>{{ termin.summary }}</h2>
 			</ion-card-header>
-			<ion-card-content>
+			<ion-card-content >
 				<!-- <p>{{ termin.description }}</p> -->
 
-
-				<table (click)="stimmen(termin.id, termin.summary, anwesend,namen,sopran,sopran2,alt,alt2,tenor,bariton,bass)">
+				<table >
 					<tr>
 						<td>
 							Sopran &nbsp;
@@ -146,6 +146,7 @@
 					</tr>
 				</table>
 			</ion-card-content>
+			</div>
 			<ion-row no-padding>
 				<ion-col>
 					<button (click)="setAnwesend(termin.id,'ja')"ion-button full outline small>zusagen</button>
