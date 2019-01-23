@@ -25,6 +25,7 @@ export class AnwesenheitPage {
   public tenor;
   public bariton;
   public bass;
+  public probemitglied;
 
   public anwesend;
   public namen;
@@ -69,12 +70,15 @@ export class AnwesenheitPage {
     public unsicherBass = 0;
     public keineAngabeBass = 0;
 
+
+
   public anwesendSopran2 = 0;
   public anwesendAlt1 = 0;
   public anwesendAlt2 = 0;
   public anwesendTenor = 0;
   public anwesendBariton = 0;
   public anwesendBass = 0;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
       this.terminID = this.navParams.get('id');
@@ -88,6 +92,7 @@ export class AnwesenheitPage {
       this.tenor = this.navParams.get('tenor');
       this.bariton = this.navParams.get('bariton');
       this.bass = this.navParams.get('bass');
+      this.probemitglied = this.navParams.get('probemitglied');
 
 
   }
@@ -206,6 +211,8 @@ export class AnwesenheitPage {
         }
         this.aktualisiereSummen();
     }
+
+
 
     aktualisiereSummen() {
 

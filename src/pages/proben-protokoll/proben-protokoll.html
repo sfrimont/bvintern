@@ -35,7 +35,7 @@
       <span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span>
       <span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span>
 
-      <h2>{{ termin.summary }}</h2>
+      <h2 text-wrap>{{ termin.summary }}</h2>
 
       <p text-wrap>{{ termin.description }}</p>
     </ion-card-header>

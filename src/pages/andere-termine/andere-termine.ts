@@ -35,6 +35,7 @@ export class AndereTerminePage {
   public  tenor = new Array();
   public  bariton = new Array();
   public  bass = new Array();
+  public probemitglied = new Array();
 
     // zur Speicherung der Vornamen. Nach einem späteren Refactoring gibt es nur noch ein Objekt pro Stimme...
     public  namen = {};
@@ -175,16 +176,20 @@ export class AndereTerminePage {
                  that.bass.push(childSnap.key);
              }
 
+             if (childSnap.val().Stimmgruppe == "Probemitglied") {
+                 that.probemitglied.push(childSnap.key);
+             }
+
              return false;
          });
 
       });
     }
 
-    stimmen(terminID,terminTitel,anwesend, namen, sopran,sopran2,alt,alt2,tenor,bariton,bass) {
+    stimmen(terminID,terminTitel,anwesend, namen, sopran,sopran2,alt,alt2,tenor,bariton,bass,probemitglied) {
 
 
-        let modal = this.modalCtrl.create(AnwesenheitPage, {id: terminID,anwesend:anwesend, terminTitel:terminTitel, namen:namen, sopran: sopran, sopran2: sopran2, alt:alt, alt2:alt2, tenor:tenor, bariton:bariton, bass:bass});
+        let modal = this.modalCtrl.create(AnwesenheitPage, {id: terminID,anwesend:anwesend, terminTitel:terminTitel, namen:namen, sopran: sopran, sopran2: sopran2, alt:alt, alt2:alt2, tenor:tenor, bariton:bariton, bass:bass, probemitglied:probemitglied});
         modal.present({
 
         });

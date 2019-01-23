@@ -36,10 +36,10 @@
       </ion-item>
       <ion-item *ngIf="folder['.tag'] == 'file'" >
         {{folder.name}}
-          <ion-icon *ngIf="(platform.is('ios') || platform.is('android')) && fileIsViewable(folder.name)" item-right name="eye" (click)="openFile(folder.path_lower)"></ion-icon>
-          <ion-icon *ngIf="platform.is('ios')" item-right name="open-outline" (click)="runterladen(folder.path_lower,folder.name,folder.type)"></ion-icon>
-          <div *ngIf="!platform.is('ios') && !platform.is('android') && fileIsViewable(folder.name)" item-right (click)="openFile(folder.path_lower)"><img src="assets/imgs/viewIcon.svg" width="20px" height="20pxs"></div>
-          <div *ngIf="!platform.is('ios') && !platform.is('android')" item-right><a [href]="downloadLink(folder.path_lower)"><img src="assets/imgs/downloadIcon.svg" width="20px" height="20pxs"></a></div>
+          <ion-icon *ngIf="(platform.is('ios') || platform.is('android')) && fileIsViewable(folder.name) && downloadAllowed(folder.name)" item-right name="eye" (click)="openFile(folder.path_lower)"></ion-icon>
+          <ion-icon *ngIf="platform.is('ios') && downloadAllowed(folder.name)" item-right name="open-outline" (click)="runterladen(folder.path_lower,folder.name,folder.type)"></ion-icon>
+          <div *ngIf="!platform.is('ios') && !platform.is('android') && fileIsViewable(folder.name) && downloadAllowed(folder.name)" item-right (click)="openFile(folder.path_lower)"><img src="assets/imgs/viewIcon.svg" width="20px" height="20pxs"></div>
+          <div *ngIf="!platform.is('ios') && !platform.is('android') && downloadAllowed(folder.name)" item-right><a [href]="downloadLink(folder.path_lower)"><img src="assets/imgs/downloadIcon.svg" width="20px" height="20pxs"></a></div>
       </ion-item>
     </div>
   </ion-list>

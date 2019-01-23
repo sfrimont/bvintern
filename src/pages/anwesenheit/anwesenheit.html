@@ -135,5 +135,18 @@
     </span>
         </ion-item>
     </ion-list>
+    <ion-list>
+    <ion-item-divider>Probemitglieder</ion-item-divider>
+
+
+    <ion-item text-wrap>
+    <span *ngFor="let voice of probemitglied">
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: lightgrey;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+    </span>
+    </ion-item>
+    </ion-list>
 
 </ion-content>

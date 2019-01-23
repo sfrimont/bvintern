@@ -7,6 +7,8 @@ import { File } from '@ionic-native/file';
 import { HttpClient } from "@angular/common/http";
 import { Media, MediaObject } from '@ionic-native/media';
 
+import firebase from 'firebase';
+
 import { FileOpener } from '@ionic-native/file-opener';
 
 
@@ -17,6 +19,8 @@ declare var cordova:any;
   templateUrl: 'home.html'
 })
 export class HomePage {
+
+    probemitglied = false;
 
     meldung="nichts";
     musik="";
@@ -54,7 +58,14 @@ export class HomePage {
               private media: Media, private fileOpener: FileOpener
               ) {
 
+/*
+      let userId = firebase.auth().currentUser.uid;
+      let probeMitgliederRef = firebase.database().ref('users/' + userId + '/starCount');
+      probeMitgliederRef.on('value', function(snapshot) {
+          this.probemitglied = snapshot.val());
+      });
 
+*/
       this.platform.ready().then(() => {
           // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
           if(!this.platform.is('cordova')) {
@@ -326,6 +337,10 @@ export class HomePage {
       return  (name.substr(name.length-3,3) == "mp3" || name.substr(name.length-3,3) == "pdf");
     }
 
+
+    downloadAllowed(name) {
+      return false;
+    }
 
     openFile(name) {
         let dateityp =  name.substr(name.length-3,3)
