@@ -17,13 +17,13 @@ export class DatumPipe implements PipeTransform {
     if (value != undefined) {
                         let wochentag = new Date(value).getDay();
                         let wochentagBez:string;
-                        if (wochentag==0) wochentagBez="So ,";
-                        if (wochentag==1) wochentagBez="Mo ,";
-                        if (wochentag==2) wochentagBez="Di ,";
-                        if (wochentag==3) wochentagBez="Mi ,";
-                        if (wochentag==4) wochentagBez="Do ,";
-                        if (wochentag==5) wochentagBez="Fr ,";
-                        if (wochentag==6) wochentagBez="Sa ,";
+                        if (wochentag==0) wochentagBez="So, ";
+                        if (wochentag==1) wochentagBez="Mo, ";
+                        if (wochentag==2) wochentagBez="Di, ";
+                        if (wochentag==3) wochentagBez="Mi, ";
+                        if (wochentag==4) wochentagBez="Do, ";
+                        if (wochentag==5) wochentagBez="Fr, ";
+                        if (wochentag==6) wochentagBez="Sa, ";
                         return (wochentagBez + new Date(value).toLocaleDateString());
     } else
                         return null;
