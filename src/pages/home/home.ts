@@ -20,7 +20,7 @@ declare var cordova:any;
 })
 export class HomePage {
 
-    probemitglied = false;
+    stimmgruppe="";
 
     meldung="nichts";
     musik="";
@@ -58,14 +58,13 @@ export class HomePage {
               private media: Media, private fileOpener: FileOpener
               ) {
 
-/*
       let userId = firebase.auth().currentUser.uid;
-      let probeMitgliederRef = firebase.database().ref('users/' + userId + '/starCount');
+      let probeMitgliederRef = firebase.database().ref('users/' + userId + '/Stimmgruppe/');
+      let that=this;
       probeMitgliederRef.on('value', function(snapshot) {
-          this.probemitglied = snapshot.val());
+          if (snapshot.val()) that.stimmgruppe = snapshot.val();
       });
 
-*/
       this.platform.ready().then(() => {
           // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
           if(!this.platform.is('cordova')) {
@@ -82,6 +81,9 @@ export class HomePage {
               // exit otherwise, but you could add further types here e.g. Windows
               return false;
           }
+
+
+
       });
 
   }
@@ -339,7 +341,12 @@ export class HomePage {
 
 
     downloadAllowed(name) {
-      return true;
+      let isPDF=name.substr(name.length-3,3) == "pdf"
+        let probemitglied=false;
+        if (this.stimmgruppe=="Probemitglied") {
+          probemitglied=true;
+        }
+      return !(probemitglied && isPDF);
     }
 
     openFile(name) {

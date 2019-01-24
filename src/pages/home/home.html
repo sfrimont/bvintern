@@ -27,7 +27,13 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-content *ngIf="stimmgruppe=='Probemitglied'">
+      Du bist in der BonnVoice-App als Probemitglied registriert und kannst aus Sicherheitsgründen keine Noten (PDF-Dateien) hier ansehen und herunterladen.
+      Bitte wende Dich bei fehlenden Noten an Tono :)
+    </ion-card-content>
 
+  </ion-card>
   <!--<button ion-button *ngIf="depth" (click)="goBack()"><ion-icon name="arrow-back"></ion-icon>Reportoire</button>-->
   <ion-list>
     <div *ngFor="let folder of folders">
