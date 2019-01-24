@@ -339,7 +339,7 @@ export class HomePage {
 
 
     downloadAllowed(name) {
-      return false;
+      return true;
     }
 
     openFile(name) {
