@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the AdresslistePage page.
@@ -15,7 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AdresslistePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user: any;
+
+  constructor(public httpClient:HttpClient, public navCtrl: NavController, public navParams: NavParams) {
+    // this.user = this.httpClient.get('http://h2821129.stratoserver.net/api.php/records/user');
   }
 
   ionViewDidLoad() {

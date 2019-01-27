@@ -31,22 +31,45 @@
 		</ion-card-content>
 	</ion-card>
 	-->
+
+
+	<ion-row no-padding>
+		<ion-col>
+			<button ion-button full outline small *ngIf="auswahl!='keineAuswahl'" (click)="changeAuswahl('keineAuswahl')">keine Auswahl ({{anzahlNichtsAusgewaehlt()}})</button>
+			<button ion-button full small *ngIf="auswahl=='keineAuswahl'" >keine Auswahl ({{anzahlNichtsAusgewaehlt()}})</button>
+		</ion-col>
+
+		<ion-col>
+			<button ion-button full small outline *ngIf="auswahl!='unsicher'" (click)="changeAuswahl('unsicher')">unsicher ({{anzahlUnsicherAusgewaehlt()}})</button>
+			<button ion-button full small *ngIf="auswahl=='unsicher'" >unsicher ({{anzahlUnsicherAusgewaehlt()}})</button>
+		</ion-col>
+
+		<ion-col>
+			<button  ion-button full outline small *ngIf="auswahl!='alleTermine'" (click)="changeAuswahl('alleTermine')">alle Termine</button>
+			<button  ion-button full small *ngIf="auswahl=='alleTermine'" >alle Termine</button>
+		</ion-col>
+
+
+	</ion-row>
+
 	<ion-card>
-		<ion-card-content *ngIf="anzahlNichtsAusgewaehlt()!=0">
-			Du hast momentan für {{ anzahlNichtsAusgewaehlt() }} Termin(e) noch keine Auswahl getroffen.
-			Bitte scrolle durch die Liste und wähle für jeden Termin eine der drei möglichen Antworten. Wenn Du
-			zu dem jetzigen Zeitpunkt bei einigen Terminen noch nicht sicher bist, wähle "unsicher" und ändere
-			Deine Antwort dann irgendwann später in eine Zusage oder eine Absage, so erhalten wir schon frühzeitig einen
-			ungefähren Überblick. Danke :-)
-		</ion-card-content>
-		<ion-card-content *ngIf="anzahlNichtsAusgewaehlt()==0">
+
+		<ion-card-content *ngIf="anzahlNichtsAusgewaehlt()==0 && auswahl=='keineAuswahl'">
 			Du hast für alle Termine eine Auswahl getroffen, vielen Dank!
 		</ion-card-content>
 	</ion-card>
-	<ion-card *ngIf="anzahlUnsicherAusgewaehlt()!=0">
+	<!--
+	<ion-card *ngIf="anzahlUnsicherAusgewaehlt()!=0 && auswahl=='unsicher'">
 		<ion-card-content>
-			Es gibt Termine für die Du "unsicher" ausgewählt hast. Bitte denke daran für diese Termine eine Zusage
-			oder eine Absage einzutragen, sobald Du Dir sicher bist. Danke :-)
+			Wenn es um eine Auswahl von Terminen geht, sind alle zugehörigen Möglichkeiten mit
+			Fragezeichen in der Terminbezeichnung markiert. Ein gelber Punkt kann dann einen für Dich sehr ungünstigen Termin kennzeichnen.
+			Sobald aus einer Auswahl ein Termin feststeht werden die anderen Termine hier gelöscht.
+		</ion-card-content>
+	</ion-card>
+	-->
+	<ion-card *ngIf="anzahlUnsicherAusgewaehlt()==0 && auswahl=='unsicher'">
+		<ion-card-content>
+			Du hast für alle Termine eine eindeutige Auswahl getroffen!
 		</ion-card-content>
 	</ion-card>
 
@@ -55,8 +78,8 @@
    
 	<ion-list>
 
-		<ion-card *ngFor="let termin of calenderData.items | terminfilter text-wrap">
-
+		<ion-card *ngFor="let termin of calenderData.items | terminfilter text-wrap" >
+          <div *ngIf="terminAnzeigen(termin.id)">
 			<div (click)="stimmen(termin.id, termin.summary, anwesend,namen,sopran,sopran2,alt,alt2,tenor,bariton,bass,probemitglied)">
 			<ion-card-header>
 				<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span>
@@ -64,12 +87,12 @@
 				<span *ngIf="anwesend[termin.id] && anwesend[termin.id][user]=='ja'" style="color:green"> - anwesend!</span>
 				<span *ngIf="anwesend[termin.id] && anwesend[termin.id][user]=='nein'" style="color:red"> - abwesend!</span>
 				<span *ngIf="anwesend[termin.id] && anwesend[termin.id][user]=='unsicher'" style="color:#e0ac00"> - unsicher!</span>
-				<h2>{{ termin.summary }}</h2>
+				<h2 text-wrap>{{ termin.summary }}</h2>
 			</ion-card-header>
 			<ion-card-content >
 				<!-- <p>{{ termin.description }}</p> -->
 
-				<table >
+				<table *ngIf="!terminNichtAuswgewaehlt()">
 					<tr>
 						<td>
 							Sopran &nbsp;
@@ -172,7 +195,7 @@
 				</ion-col>
 
 			</ion-row>
-
+		  </div>
 			<!--
 			<ion-row no-padding>
 				<ion-col>

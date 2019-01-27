@@ -21,6 +21,8 @@ import { AnwesenheitPage } from '../anwesenheit/anwesenheit';
 })
 export class AndereTerminePage {
 
+    auswahl="keineAuswahl"; // in dieser Variablen wird gespeichert welche Termine angezeigt werden sollen.
+
     public user = firebase.auth().currentUser.uid;
     public name: string;
 
@@ -46,6 +48,22 @@ export class AndereTerminePage {
    this.getCalData();
    this.dataReady=false;
    this.initAnwesendArray();
+  }
+
+  changeAuswahl(auswahl) {
+      this.auswahl=auswahl;
+  }
+
+  terminAnzeigen(id) {
+      if (this.auswahl=="unsicher") if (this.anwesend[id] && this.anwesend[id][this.user]=="unsicher") return true;
+      if (this.auswahl=="alleTermine") return true;
+      if (this.auswahl=="keineAuswahl") if (!(this.anwesend[id] && this.anwesend[id][this.user]) || this.anwesend[id] && this.anwesend[id][this.user]=='vielleicht') return true;
+      return false;
+  }
+
+  terminNichtAuswgewaehlt(id) {
+      if (this.auswahl=="keineAuswahl") if (!(this.anwesend[id] && this.anwesend[id][this.user]) || this.anwesend[id] && this.anwesend[id][this.user]=='vielleicht') return true;
+      return false;
   }
 
     doRefresh(rf) {

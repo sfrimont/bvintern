@@ -9,7 +9,7 @@ import { ViewController } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-anwesenheit',
   templateUrl: 'anwesenheit.html',
@@ -80,7 +80,7 @@ export class AnwesenheitPage {
   public anwesendBass = 0;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
       this.terminID = this.navParams.get('id');
       this.terminTitel = this.navParams.get('terminTitel');
       this.anwesend = this.navParams.get('anwesend');
@@ -104,7 +104,7 @@ export class AnwesenheitPage {
 
 
    dismiss() {
-       this.viewCtrl.dismiss();
+       //this.viewCtrl.dismiss();
    }
 
     zaehleSopran1() {
