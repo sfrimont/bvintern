@@ -104,7 +104,7 @@ export class AnwesenheitPage {
 
 
    dismiss() {
-       //this.viewCtrl.dismiss();
+       this.viewCtrl.dismiss();
    }
 
     zaehleSopran1() {
