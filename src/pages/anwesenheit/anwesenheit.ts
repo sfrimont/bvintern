@@ -80,7 +80,7 @@ export class AnwesenheitPage {
   public anwesendBass = 0;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
       this.terminID = this.navParams.get('id');
       this.terminTitel = this.navParams.get('terminTitel');
       this.anwesend = this.navParams.get('anwesend');
