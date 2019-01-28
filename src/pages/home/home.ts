@@ -5,7 +5,7 @@ import { DropboxProvider } from '../../providers/dropbox/dropbox';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { HttpClient } from "@angular/common/http";
-import { Media, MediaObject } from '@ionic-native/media';
+// import { Media, MediaObject } from '@ionic-native/media';
 
 import firebase from 'firebase';
 

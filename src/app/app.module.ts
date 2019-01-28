@@ -30,7 +30,7 @@ import { HTTP } from '@ionic-native/http';
 
 import { FileTransfer } from "@ionic-native/file-transfer";
 import { File } from "@ionic-native/file";
-import { Media  } from '@ionic-native/media';
+//import { Media  } from '@ionic-native/media';
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
@@ -101,7 +101,7 @@ export function myCustomAudioProviderFactory() {
       FileTransfer,
       File,
       HTTP,
-      Media,
+      //Media,
     AuthProvider,
       FileOpener
   ]
