@@ -9,14 +9,14 @@ import { SigninPage } from "../pages/signin/signin";
 import { ProbenProtokollPage} from "../pages/proben-protokoll/proben-protokoll";
 
 import { HomePage } from '../pages/home/home';
-//import { ListPage } from '../pages/list/list';
+
 import { AufgabenPage } from '../pages/aufgaben/aufgaben';
 import { BildergaleriePage } from "../pages/bildergalerie/bildergalerie";
 import { AdresslistePage } from "../pages/adressliste/adressliste";
 import { ProbenPage } from "../pages/proben/proben";
 //import { KalenderPage } from "../pages/kalender/kalender";
 import { AndereTerminePage } from "../pages/andere-termine/andere-termine";
-import {AudioplayerPage} from "../pages/audioplayer/audioplayer";
+
 import {NavController, MenuController} from 'ionic-angular';
 
 import {AuthProvider} from "../providers/auth/auth";

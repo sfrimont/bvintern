@@ -4,7 +4,7 @@ import { BildergaleriePage } from './bildergalerie';
 
 @NgModule({
   declarations: [
-    BildergaleriePage,
+
   ],
   imports: [
     IonicPageModule.forChild(BildergaleriePage),

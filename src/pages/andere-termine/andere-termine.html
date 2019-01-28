@@ -36,7 +36,7 @@
 	<ion-row no-padding>
 		<ion-col>
 			<button ion-button full outline small *ngIf="auswahl!='keineAuswahl'" (click)="changeAuswahl('keineAuswahl')">keine Auswahl ({{anzahlNichtsAusgewaehlt()}})</button>
-			<button ion-button full small *ngIf="auswahl=='keineAuswahl'" >keine Auswahl ({{anzahlNichtsAusgewaehlt()}})</button>
+			<button ion-button full small *ngIf="auswahl=='keineAuswahl'" >neu ({{anzahlNichtsAusgewaehlt()}})</button>
 		</ion-col>
 
 		<ion-col>
@@ -46,7 +46,7 @@
 
 		<ion-col>
 			<button  ion-button full outline small *ngIf="auswahl!='alleTermine'" (click)="changeAuswahl('alleTermine')">alle Termine</button>
-			<button  ion-button full small *ngIf="auswahl=='alleTermine'" >alle Termine</button>
+			<button  ion-button full small *ngIf="auswahl=='alleTermine'" >alle</button>
 		</ion-col>
 
 
@@ -58,15 +58,7 @@
 			Du hast für alle Termine eine Auswahl getroffen, vielen Dank!
 		</ion-card-content>
 	</ion-card>
-	<!--
-	<ion-card *ngIf="anzahlUnsicherAusgewaehlt()!=0 && auswahl=='unsicher'">
-		<ion-card-content>
-			Wenn es um eine Auswahl von Terminen geht, sind alle zugehörigen Möglichkeiten mit
-			Fragezeichen in der Terminbezeichnung markiert. Ein gelber Punkt kann dann einen für Dich sehr ungünstigen Termin kennzeichnen.
-			Sobald aus einer Auswahl ein Termin feststeht werden die anderen Termine hier gelöscht.
-		</ion-card-content>
-	</ion-card>
-	-->
+
 	<ion-card *ngIf="anzahlUnsicherAusgewaehlt()==0 && auswahl=='unsicher'">
 		<ion-card-content>
 			Du hast für alle Termine eine eindeutige Auswahl getroffen!

@@ -4,7 +4,7 @@ import { KalenderPage } from './kalender';
 
 @NgModule({
   declarations: [
-    KalenderPage,
+
   ],
   imports: [
     IonicPageModule.forChild(KalenderPage),

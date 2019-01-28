@@ -5,7 +5,7 @@ import { HttpClientModule }from '@angular/common/http';
 import { PipesModule } from '../pipes/pipes.module';
 
 import { MyApp } from './app.component';
-import { ListPage } from '../pages/list/list';
+
 import { AufgabenPage } from '../pages/aufgaben/aufgaben';
 import { BildergaleriePage } from '../pages/bildergalerie/bildergalerie';
 import { AdresslistePage } from '../pages/adressliste/adressliste';
@@ -26,14 +26,14 @@ import { DropboxProvider } from '../providers/dropbox/dropbox';
 import { HttpModule } from '@angular/http';
 import { HTTP } from '@ionic-native/http';
 
-import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio';
+// import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio';
 
 import { FileTransfer } from "@ionic-native/file-transfer";
 import { File } from "@ionic-native/file";
 import { Media  } from '@ionic-native/media';
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import {AudioplayerPage} from "../pages/audioplayer/audioplayer";
+
 import { AuthProvider } from '../providers/auth/auth';
 import {SigninPage} from "../pages/signin/signin";
 
@@ -42,15 +42,17 @@ import { FileOpener } from '@ionic-native/file-opener';
 /**
  * Sample custom factory function to use with ionic-audio
  */
+/*
 export function myCustomAudioProviderFactory() {
   return (window.hasOwnProperty('cordova')) ? new CordovaMediaProvider() : new WebAudioProvider();
 }
+*/
 
 @NgModule({
   declarations: [
     MyApp,
     KalenderPage,
-    ListPage,
+
     AufgabenPage,
     BildergaleriePage,
     AdresslistePage,
@@ -58,7 +60,7 @@ export function myCustomAudioProviderFactory() {
       ProbenPage,
     HomePage,
       SigninPage,
-      AudioplayerPage,
+
       AnwesenheitPage,
       AnwesenheitProbePage,
       ProbenProtokollPage
@@ -69,7 +71,7 @@ export function myCustomAudioProviderFactory() {
     HttpClientModule,
     HttpModule,
     PipesModule,
-    IonicAudioModule.forRoot(defaultAudioProviderFactory),
+ //   IonicAudioModule.forRoot(defaultAudioProviderFactory),
       PdfViewerModule,
 
   ],
@@ -78,7 +80,7 @@ export function myCustomAudioProviderFactory() {
     MyApp,
       ProbenPage,
     KalenderPage,
-    ListPage,
+
     AufgabenPage,
     BildergaleriePage,
     AdresslistePage,
@@ -86,7 +88,7 @@ export function myCustomAudioProviderFactory() {
        ProbenProtokollPage,
     HomePage,
       SigninPage,
-      AudioplayerPage,
+
       AnwesenheitPage,
       AnwesenheitProbePage
   ],
