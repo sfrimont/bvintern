@@ -124,6 +124,7 @@ export class HomePage {
         });
     }
 
+    /*
     downloadMusicFromDropbox(name)
     {
         this.platform.ready().then(() => {
@@ -147,6 +148,7 @@ export class HomePage {
             });
         });
     }
+    */
 
     getDurationAndSetToPlay() {
         this.mp3file.play();
