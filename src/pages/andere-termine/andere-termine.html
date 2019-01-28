@@ -35,7 +35,7 @@
 
 	<ion-row no-padding>
 		<ion-col>
-			<button ion-button full outline small *ngIf="auswahl!='keineAuswahl'" (click)="changeAuswahl('keineAuswahl')">keine Auswahl ({{anzahlNichtsAusgewaehlt()}})</button>
+			<button ion-button full outline small *ngIf="auswahl!='keineAuswahl'" (click)="changeAuswahl('keineAuswahl')">neu ({{anzahlNichtsAusgewaehlt()}})</button>
 			<button ion-button full small *ngIf="auswahl=='keineAuswahl'" >neu ({{anzahlNichtsAusgewaehlt()}})</button>
 		</ion-col>
 
@@ -45,7 +45,7 @@
 		</ion-col>
 
 		<ion-col>
-			<button  ion-button full outline small *ngIf="auswahl!='alleTermine'" (click)="changeAuswahl('alleTermine')">alle Termine</button>
+			<button  ion-button full outline small *ngIf="auswahl!='alleTermine'" (click)="changeAuswahl('alleTermine')">alle</button>
 			<button  ion-button full small *ngIf="auswahl=='alleTermine'" >alle</button>
 		</ion-col>
 
