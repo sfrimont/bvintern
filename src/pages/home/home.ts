@@ -55,7 +55,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, public dropbox: DropboxProvider, public loadingCtrl: LoadingController,
               private transfer: FileTransfer, private file: File,
               public platform: Platform, public alertCtrl: AlertController,
-              private media: Media, private fileOpener: FileOpener
+               private fileOpener: FileOpener
               ) {
 
       let userId = firebase.auth().currentUser.uid;
