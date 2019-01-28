@@ -196,6 +196,7 @@ export class HomePage {
         this.getAndSetCurrentAudioPosition();
     }
 
+    /*
     retrieveMusic() {
         this.file.checkFile(this.storageDirectory, "musik.mp3")
             .then(() => {
@@ -223,6 +224,7 @@ export class HomePage {
 
             });
     }
+    */
 
     retrieveImage(image) {
 
