@@ -37,7 +37,7 @@
         <ion-list>
 
             <ion-card *ngFor="let termin of calenderData.items | probenfilter text-wrap">
-                <ion-card-header>
+                <ion-card-header text-wrap>
                     <span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span>
                     <span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span>
 
